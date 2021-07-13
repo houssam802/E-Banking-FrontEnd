@@ -1,0 +1,63 @@
+<div class="adjust-all" *ngIf="agence">
+    <div class="conteneur">
+        <div class="diviser">
+            <div class="heee">
+                <div style="width : 50%">
+                    <p class="title">Agence</p>
+                 </div>
+            </div>
+            <div class="hello">
+                <div class="better left-details">
+                    <p>Nom d'agence</p>
+                </div>
+                <div class="better">
+                    <p>{{agence.title}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="diviser">
+            <div class="heee">
+                <div style="width : 100%">
+                    <p class="title" style="display: flex; justify-content: space-between;">
+                        Adresse
+                        <span (click) = "editOn()" class="fa fa-pencil-square-o" style="font-size: 1rem;"></span>
+                    </p>
+                 </div>
+            </div>
+            <div class="hello">
+                <div class="better left-details">
+                    <div>Addresse</div>
+                    <div>Zip code</div>
+                    <div>Ville</div>
+                    <div>Pays</div>
+                    <div></div>
+                </div>
+                <div *ngIf='!editer' class="better">
+                    <div>{{agence.address?.address1}}</div>
+                    <div>{{agence.address?.zipcode}}</div>
+                    <div>{{agence.address?.city}}</div>
+                    <div>{{agence.address?.country}}</div>    
+                    <div></div> 
+                </div>
+                <div *ngIf='editer' class="better">
+                    <div>
+                        <input type="text" class="form-control" name="address1" id="address1" value='{{agence.address?.address1}}' />
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" name="zipcode" id="ZIPCode" value='{{agence.address?.zipcode}}' />
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" name="city" id="city" value="{{agence.address?.city}}" readonly/>
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" name="country" id="country" value="{{agence.address?.country}}" readonly />
+                    </div>
+                    <div>
+                        <button style="margin-top : 10px" class="btn btn-primary" (click)="changeAddress()">Modifier</button>
+                    </div>   
+                    <label class="is-invalid">{{this.error}}</label>   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

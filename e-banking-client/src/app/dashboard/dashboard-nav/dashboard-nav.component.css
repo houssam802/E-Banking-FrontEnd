@@ -1,0 +1,29 @@
+nav{
+  background:var(--first-color);
+  padding: 0;
+
+}
+nav a{
+  color:white;
+  font-size:3vw;
+  margin-left:20px;
+}
+
+.total_balance{
+  flex-direction: column;
+  margin-right: 20px;
+  }  
+
+@media(max-width:780px){
+    
+    span{
+      font-size: 10pt;
+    }
+}
+
+
+.btn{
+  margin-right: 0.2rem;
+}
+
+

@@ -1,0 +1,15 @@
+.error{
+    width: 99%;
+    font-size: 1.1em;
+    color: #dc3545;
+    background: #dc35451f;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #dc3545;
+    margin-bottom: 10px;
+}
+
+input, select, button{
+    outline: none !important;
+    box-shadow: none !important;
+}

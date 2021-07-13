@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+#listeAgentsContainer{
+  font-family: 'Nunito' !important;
+}
+
+@media all and (max-width : 700px){
+  #listeAgentsContainer > div:nth-child(1) > div{
+    font-size: 1.1rem;
+  }
+}
+
+@media all and (min-width : 700px){
+  #listeAgentsContainer > div:nth-child(1) > div:nth-child(1){
+    font-size: 1.7rem;
+  }
+  #listeAgentsContainer > div:nth-child(1) > div:nth-child(2){
+    font-size: 1.4rem;
+  }
+}
+
+#listeAgentsContainer > div:nth-child(2){
+  width: 100%;
+  overflow-x: auto;
+}
+
+#listeAgentsContainer > div:nth-child(2)::-webkit-scrollbar{
+  height: 8px;
+}
+#listeAgentsContainer > div:nth-child(2)::-webkit-scrollbar-thumb{
+  background-color: rgb(194, 194, 194);
+}
+#listeAgentsContainer > div:nth-child(2)::-webkit-scrollbar-track{
+  background-color: rgb(221, 221, 221);
+}
+
+#listeAgents{
+  width: 99%;
+  min-width: 750px;
+  border: none;
+}
+
+#listeAgents .agent {
+  border-left: 1px solid gray;
+}
+
+#listeAgents .agent td:not(td:last-child){
+  border-bottom: 1px solid gray;
+}
+
+#listeAgents .agent td{
+  border-right: 1px solid gray;
+  padding: .3rem .2rem;
+}
+
+
+#listeAgents tr:nth-child(1){
+  padding: .2rem;
+  color: white;
+  background-color: var(--first-color);
+}
+
+#listeAgents .tabelHeader td:not(td:last-child){
+  border-right: 1px solid white;
+}
+
+#listeAgents .tabelHeader{
+  padding: 0 !important;
+}
+
+#listeAgents .tabelHeader td{
+  padding: .5rem .2rem;
+  font-size: 1rem;
+}
+
+#listeAgents .lien{
+  cursor: pointer;
+}
+#listeAgents .lien:hover{
+  color: var(--first-color) !important;
+}
+
+#listeAgents .agent td:last-child{
+  border-right: unset;
+  width: 100px;
+
+}
+#listeAgents .agent td:last-child span{
+  margin: 0 .5rem;
+  border: 1px solid;
+  padding: .45rem .5rem;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+#listeAgents .tabelHeader td:not(td:last-child){
+  border-right: 1px solid white;
+}
+
+#listeAgents .tabelHeader td:nth-child(6){
+  border-right: 1px solid var(--first-color) !important;
+}
+
+#listeAgents .tabelHeader td:last-child{
+  background: white !important;
+}
+
+#listeAgents .agent td:last-child span:nth-child(1){
+  background-color: rgb(84, 180, 135);
+}
+
+#listeAgents .agent td:last-child span:nth-child(1):hover{
+  background-color: rgb(73, 160, 120);
+}
+
+#listeAgents .agent td:last-child span:nth-child(2){
+  background-color: rgb(233, 145, 73);
+}
+
+#listeAgents .agent td:last-child span:nth-child(2):hover{
+  background-color: rgb(199, 124, 62);
+}

@@ -1,0 +1,25 @@
+
+<div id="id1">
+    <form class="row g-3" [formGroup]='compteform' >
+        <div class="row g-3">
+          <h4>Nouveau Compte</h4>
+          <p class="error" *ngIf="videError">{{ "Remplit tous les champs !" }}</p>
+          <hr>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Titre" aria-label="title" formControlName="title">
+            </div>
+            <div class="input-group" >
+                <input type="text" class="form-control" aria-label="Amount" placeholder="Montant" formControlName="balance">
+                <div class="input-group-append">
+                  <span class="input-group-text">Dhs</span>
+                </div>
+              </div>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary" (click)="valider()" id="id2" >Valider</button> 
+          </div>
+    </form>
+   
+
+    </div>

@@ -1,0 +1,66 @@
+.Danger{
+    background-color:red;
+}
+.Ndanger{
+    background-color: rgba(250, 188, 118, 0.863);
+}
+.Good{
+    background-color: rgba(135, 220, 135, 0.83);
+}
+
+tr{
+    border-bottom: 0.5px solid #eee;
+}
+.dat p{
+    
+   display: flex;
+   flex-direction: column;
+} 
+
+.table .first_tr{
+    border: 1px solid #ddd;
+}
+
+.table td, .table th {
+    vertical-align: top;
+    border:none;
+}
+
+td:nth-child(0){
+    width: 50px;
+}
+
+
+@media only screen and (max-width:1024px){
+
+    table{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:700px){
+
+    table{
+        width: 100%;   
+    }
+    p{
+        font-size: 1rem!important;
+    }
+    span{
+        font-size: 1rem!important;
+    }
+}
+    
+@media only screen and (min-width:360px){
+    
+    table{
+        width: 100%;
+    }
+    p{
+        font-size: 1rem!important;
+    }
+    span{
+        font-size: 1rem!important;
+    }
+    
+}

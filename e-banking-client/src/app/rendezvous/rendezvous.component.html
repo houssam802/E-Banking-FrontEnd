@@ -1,0 +1,28 @@
+<div class="rendezvous">
+    <h4 style="margin: 1rem; margin-bottom: 2rem;">Fixer un rendez-vous avec votre agent</h4>
+    <form id="rendezForm" [formGroup]="rendezvous" (ngSubmit)='onSubmit()' style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <div class="form-group">
+            <label for="date" class="rendez">Date de visite</label>
+            <input type="date" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid' : invalideDate() }" name="date" id="date" autocomplete="off">
+            <p class="errors" [ngClass]="{ 'set' : invalideDate() }">Date Incorrect !</p>
+        </div>
+        <div class="form-group">
+            <label for="tempsP" class="rendez">Heure de départ</label>
+            <input type="time" formControlName="tempsP" class="form-control" [ngClass]="{ 'is-invalid' : invalideTempsP() }" name="tempsP" id="tempsP" autocomplete="off" step="1800">
+            <p class="errors" [ngClass]="{ 'set' : invalideTempsP() }">Valeur invalid</p>
+        </div>
+        <div class="form-group">
+            <label for="tempsF" class="rendez">Durée de rendez-vous (minutes)</label>
+            <input type="number" formControlName="tempsF" onkeydown="return false" min="30" max="120" step="30" class="form-control" [ngClass]="{ 'is-invalid' : invalideTempsF() }" name="tempsF" id="tempsF" autocomplete="off">
+            <p class="errors" [ngClass]="{ 'set' : invalideTempsF() }">Valeur invalid</p>
+        </div>
+        <div class="form-group submit">
+            <input type="submit" name="date" id="date" placeholder="Date">
+        </div>
+    </form>
+    <span style="color: #dc3545; margin-top: .5rem;">
+        <span class="fa fa-exclamation-triangle"></span> 
+        Respecter les heures de travail !<br>
+        <span> De Lundi à Vendredi : 09:30 à 16:00</span>
+    </span>
+</div>

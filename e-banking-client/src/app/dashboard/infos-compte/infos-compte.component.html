@@ -1,0 +1,37 @@
+<div class="container account" >
+  <div class="row">
+    <div class="col" >
+      <table class="table pb-4">    
+      <tbody>
+          <tr class="first_tr">
+              <td class="first_td"></td>
+              <td  >intitule</td>
+              <td  >Numero de compte</td>
+              <td  >Status</td>
+              <td  >balance</td>
+          </tr>
+
+          <tr class="test" *ngFor="let p of comptes! | paginate:{id : 'listing_pagination',
+          itemsPerPage: 5,
+          currentPage: page,
+          totalItems: totalRecords}"
+          [ngClass] = "{'highlight' : p.number == compte}"> 
+              <td></td>
+              <td class="pos">{{p.title}}</td>
+              <td class="pos">{{p.number}}</td>
+              <td  class="pos" *ngIf="p.status=='ACTIVE'">Active</td>
+              <td  class="pos" *ngIf="p.status=='SUSPENDED'">Désactiver</td>
+              <td class="pos">{{p.balance}} MAD</td>
+                   </tr>
+          </tbody>
+                  
+      </table>
+      <div>
+      <br>
+        <pagination-controls  *ngIf="comptes?.length!>=7" id="listing_pagination" (pageChange)="page = $event"></pagination-controls>
+      </div>
+  </div>
+</div>
+</div>
+
+

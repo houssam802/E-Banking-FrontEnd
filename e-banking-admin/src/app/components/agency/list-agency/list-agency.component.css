@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+#listeAgencesContainer{
+  font-family: 'Nunito' !important;
+}
+
+#listeAgencesContainer > div:nth-child(2){
+  width: 100%;
+  overflow-x: auto;
+}
+
+#listeAgencesContainer > div:nth-child(2)::-webkit-scrollbar{
+  height: 8px;
+}
+#listeAgencesContainer > div:nth-child(2)::-webkit-scrollbar-thumb{
+  background-color: rgb(194, 194, 194);
+}
+#listeAgencesContainer > div:nth-child(2)::-webkit-scrollbar-track{
+  background-color: rgb(221, 221, 221);
+}
+
+#listeAgences{
+  width: 99%;
+  min-width: 600px;
+  border: none;
+}
+
+#listeAgences tr td:last-child{
+  width: 100px;
+}
+
+#listeAgencesContainer > div:nth-child(2) #listeAgences .agence {
+  border-left: 1px solid gray;
+}
+
+#listeAgences .agence td:not(td:last-child){
+  border-bottom: 1px solid gray;
+}
+
+#listeAgences .agence td:last-child{
+  border-right: unset;
+  width: 50px;
+
+}
+#listeAgences .agence td:last-child span{
+  margin: 0 .5rem;
+  border: 1px solid;
+  padding: .45rem .5rem;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+#listeAgences .agence td:last-child span:nth-child(1){
+  background-color: rgb(84, 180, 135);
+}
+
+#listeAgences .agence td:last-child span:nth-child(1):hover{
+  background-color: rgb(73, 160, 120);
+}
+
+#listeAgences .agence td:last-child span:nth-child(2){
+  background-color: rgb(233, 145, 73);
+}
+
+#listeAgences .agence td:last-child span:nth-child(2):hover{
+  background-color: rgb(199, 124, 62);
+}
+
+#listeAgences .tabelHeader td:nth-child(3){
+  border-right: 1px solid var(--first-color) !important;
+}
+
+#listeAgences .agence td{
+  border-right: 1px solid gray;
+  padding: .3rem .2rem;
+}
+
+
+#listeAgences tr:nth-child(1){
+  padding: .2rem;
+  color: white;
+  background-color: var(--first-color);
+}
+
+#listeAgences .tabelHeader td:not(td:last-child){
+  border-right: 1px solid white;
+}
+
+#listeAgences .tabelHeader{
+  padding: 0 !important;
+}
+
+#listeAgences .tabelHeader td{
+  padding: .5rem .2rem;
+  font-size: 1rem;
+}
+
+#listeAgences .tabelHeader td:last-child{
+  background: white !important;
+}
+
+#listeAgences .lien{
+  cursor: pointer;
+}
+#listeAgences .lien:hover{
+  color: var(--first-color) !important;
+}

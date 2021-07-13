@@ -1,0 +1,144 @@
+*{
+    box-sizing: border-box;
+}
+.conteneur{
+    width: clamp(300px, 70%, 900px);
+    margin: 0 auto;
+}
+.hello{
+    margin: 1rem;
+    width: clamp(250px, 60%, 700px);
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+}
+.hello > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hello > div:nth-child(1){
+    flex: 1 1 45%;
+}
+.hello > div:nth-child(2){
+    flex: 1 1 55%;
+}
+
+.hello > div > div{
+    height: 30px;
+    margin: .25rem;
+    display: flex;
+    align-items: center;
+}
+
+.hello > div:nth-child(2) > div input{
+    width: 100%;
+    height: 100%;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.hello > div:nth-child(2) > div:last-child{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hello > div:nth-child(2) > div:last-child button{
+    box-shadow: none !important;
+    background-color: rgb(107, 119, 180);
+    border: none;
+}
+
+.hello > div:nth-child(2) > div:last-child button:hover{
+    background-color: rgb(91, 101, 153);
+}
+
+
+.diviser{
+    margin: 2%;
+    background-color: white;
+    box-shadow: 0 0 1rem .2rem #DCDCDC;
+    padding: 1% 5% 1% 5%;
+    width: 110%;
+
+}
+.adjust-all{
+    display : flex;
+    background-color: #F5F5F5;
+    margin: 0%;
+    padding-right: 9%;
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  
+}
+
+h3{
+    margin: 0%;
+}
+p{
+    font-size: 10pt;
+    
+}
+.left-details{
+    color: #808080; 
+    font-size: 1.05rem;
+}
+
+.left-details p{
+    font-size: 1.05rem;
+}
+
+.better p{
+    font-size: 1.05rem;
+}
+
+.title .fa{
+    padding: .375rem .325rem;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.title .fa:hover{
+    background-color: rgb(209, 209, 209);
+}
+
+.title{
+    font-size: 14pt;
+    margin:0px ;
+    padding-top: 3%;
+}
+ i{
+     color: #DCDCDC;  ;
+    
+     font-size: 4em;
+     position: relative;
+     top:45%;
+     left:45%;
+     
+    /* margin-left: 35%; */
+ }
+ .name{
+     font-weight: bold;
+     text-align: center;
+     font-size: 12pt;
+     padding: 10%;
+ }
+
+ .pass{
+     font-weight: bold;
+ }
+ .heee{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+
+ .is-invalid {
+    font-size: 8pt;
+    margin-top: 8px;
+    margin-left: 2px;
+    color:#d1432a;
+ }

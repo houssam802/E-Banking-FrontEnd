@@ -1,0 +1,26 @@
+<div *ngIf="comptesClient?.length != 0" id="listeComptesContainer" style="margin: 2rem;">
+  <div style="display: flex; justify-content: space-between;">
+    <div style="margin: 1rem;">Comptes</div>
+    <div style="margin: 1rem;">Client : {{client?.firstName?.toUpperCase()}} {{client?.lastName?.toUpperCase()}}</div>
+  </div>
+  <div>
+    <table id="listeComptes">
+      <tr class="tabelHeader" style="font-size: 1.1rem;">
+        <td>Numéro de compte</td>
+        <td>Balance (en MAD)</td>
+        <td>Status</td>
+      </tr> 
+      <tr *ngFor="let compte of comptesClient" id="c{{compte.number}}" class="compte">
+        <td>{{compte.number}}</td>
+        <td>{{compte.balance}}</td>
+        <td class="status">
+            <label class="checkStyle" for="check{{compte.number}}"><span class="fa fa-check"></span></label>
+            <input type="checkbox" (click)="switch($event)" class="checkStatus" style="display: none;" id="check{{compte.number}}">
+            <div style="display: inline-block; width: 90px;">
+              {{compte.status}}
+            </div>
+        </td>
+      </tr> 
+    </table>
+  </div> 
+</div>

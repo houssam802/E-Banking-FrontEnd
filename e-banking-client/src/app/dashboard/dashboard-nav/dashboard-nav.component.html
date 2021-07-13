@@ -1,0 +1,14 @@
+<nav class="navbar"> 
+
+  <a class="navbar-brand" *ngIf="hasRoute('/dashboard') " > 
+    <div style="cursor: default;">
+      <div class="d-flex total_balance">
+        <span style="font-size: 12px;">Total balance</span>
+        <span style="font-weight:400;font-size:30px;">{{balance}} MAD</span>
+      </div>
+      <button type="button" class="btn mb-2 mb-md-0 btn-outline-info" routerLink="/addVirement">Effectuer un virement</button>
+    </div>
+    </a>
+</nav>
+
+

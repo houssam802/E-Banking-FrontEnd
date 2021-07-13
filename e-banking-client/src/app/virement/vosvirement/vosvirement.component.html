@@ -1,0 +1,37 @@
+<div *ngFor="let compte of comptes" style="margin-bottom: 2.5rem; border-bottom: solid 1px #14a78c; padding-bottom: 2.5rem;">
+    <div style="font-size: 1.1rem; display: flex; justify-content: space-between; background: #14a78c; padding: 15px; margin: 0; color: white; font-weight: 700;" >
+        <div>
+            <p style="display: inline;">Intitule : </p>
+            {{compte.title}}
+        </div>
+        <div>
+            <p style="display: inline;">Num de compte : </p>
+            {{compte.number}}
+        </div> 
+    </div>
+    <table class="table" style="border-bottom:1px solid #ddd;">
+        <tbody>
+            <tr class="first_tr">
+                <td></td>
+                <td  >Date de Virement</td>
+                <td  >Numero de compte</td>
+                <td  >Montant</td>
+            </tr>
+            <tr *ngFor="let virement of comptes_vir.get(compte.id!)">
+                <td></td>
+                <td> 
+                    <p style="font-size:10px;margin:0; color: #6A6A6A;" >{{virement.transferDate | date:'dd/MM/yyyy'}} </p>                       
+                </td>   
+                <td > 
+                    <span style="font-size:20px;color: #6A6A6A !important; font-weight: lighter;" *ngFor="let benifices of virement.multipleTransferRecipients" >{{benifices.accountNumber}}<br /></span>
+                </td> 
+                <td > 
+                    <div *ngIf="virement.totalAmount != undefined">
+                        <span *ngIf="virement.totalAmount>0" class="badge Good" style="font-size:20px;color: #6A6A6A !important; font-weight: bold;" >+{{virement.totalAmount.toFixed(2)}} <span style="font-size:small ;">MAD</span> </span>
+                        <span *ngIf="virement.totalAmount<0" class="badge Ndanger" style="font-size:20px;color: #6A6A6A !important; font-weight: bold;"  >{{virement.totalAmount.toFixed(2)}} <span style="font-size:small ;">MAD</span></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

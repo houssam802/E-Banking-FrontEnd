@@ -1,0 +1,15 @@
+<form  [formGroup] = "virement" (ngSubmit) = "onSubmit()">
+    <div class="form-group" [ngClass]="{ 'has-error' : invalidBeneficiaire() }">
+        <label for="benificiaire">Numéro du compte</label>
+        <input type="text" formControlName="beneficiaire" [ngClass]="{ 'is-invalid' : invalidBeneficiaire() }" name="beneficiaire" id="beneficiaire" class="form-control" autocomplete="off" placeholder="Bénéficiaire">
+        <p class="error" [ngClass]="{ 'set' : invalidBeneficiaire() }">{{ "Bénificiaire requis" }}</p>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error' : invalidMontant() }">
+        <label for="montant">Montant</label>
+        <input type="number" formControlName="montant" [ngClass]="{ 'is-invalid' : invalidMontant() }" name="montant" min="0" id="montant" class="form-control" autocomplete="off" placeholder="en MAD">
+        <p class="error" [ngClass]="{ 'set' : invalidMontant() }">{{ "Montant requis" }}</p>
+    </div>
+    <div class="form-group" style="display: flex; justify-content: center;">
+        <input type="submit" value="Ajouter" id="ajouter">
+    </div>
+</form>

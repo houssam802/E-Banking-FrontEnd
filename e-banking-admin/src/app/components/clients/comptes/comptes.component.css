@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+#listeComptesContainer{
+  font-family: 'Nunito' !important;
+}
+
+#listeComptes{
+  width: 100%;
+  min-width: 500px;
+  border: none;
+  border-bottom: solid 1px gray;
+}
+
+#listeComptes tr{
+  width: 100%;
+}
+
+@media all and (max-width : 700px){
+  #listeComptesContainer > div:nth-child(1) > div{
+    font-size: 1.1rem;
+  }
+}
+
+@media all and (min-width : 700px){
+  #listeComptesContainer > div:nth-child(1) > div:nth-child(1){
+    font-size: 1.7rem;
+  }
+  #listeComptesContainer > div:nth-child(1) > div:nth-child(2){
+    font-size: 1.4rem;
+  }
+}
+
+
+#listeComptesContainer > div:nth-child(2)::-webkit-scrollbar{
+  height: 8px;
+}
+#listeComptesContainer > div:nth-child(2)::-webkit-scrollbar-thumb{
+  background-color: rgb(194, 194, 194);
+}
+#listeComptesContainer > div:nth-child(2)::-webkit-scrollbar-track{
+  background-color: rgb(221, 221, 221);
+}
+
+#listeComptesContainer > div:nth-child(2){
+  width: 100%;
+  overflow-x: auto;
+}
+
+#listeComptes .compte {
+  border-left: 1px solid gray;
+}
+
+
+#listeComptes .compte .status.desactivated {
+  background-color: rgb(228, 161, 161);
+}
+
+#listeComptes .compte .status.activated {
+  background-color: rgb(161, 230, 161);
+}
+
+#listeComptes .compte:not(.compte:last-child) {
+    border-bottom: 1px solid gray ;
+  }
+
+#listeComptes .compte td{
+  border-right: 1px solid gray;
+  padding: .3rem .2rem;
+}
+
+
+#listeComptes tr:nth-child(1){
+  padding: .2rem;
+  color: white;
+  background-color: var(--first-color);
+}
+
+#listeComptes .tabelHeader td:not(td:last-child){
+  border-right: 1px solid white;
+}
+
+#listeComptes .tabelHeader td:last-child{
+  border-right: 1px solid var(--first-color);
+}
+
+
+#listeComptes .tabelHeader{
+  padding: 0 !important;
+}
+
+#listeComptes .tabelHeader td{
+  padding: .5rem .2rem;
+  font-size: 1rem;
+}
+
+#listeComptes .lien{
+  cursor: pointer;
+}
+#listeComptes .lien:hover{
+  color: var(--first-color) !important;
+}
+
+
+.checkStyle{
+  border: 1px solid;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  margin-right: 1rem;
+  background-color: white;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkStyle:hover{
+  background-color: rgba(255, 255, 255, .85);
+}
+
+.checkStyle .fa.fa-check{
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.checkStyle .fa.fa-check.actif{
+  visibility: visible;
+}

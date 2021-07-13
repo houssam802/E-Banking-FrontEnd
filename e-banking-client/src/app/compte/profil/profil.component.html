@@ -1,0 +1,105 @@
+<div class="adjust-all" *ngIf="client">
+    <div class="conteneur">
+        <div class="diviser">
+            <div class="heee">
+                <div style="width : 50%">
+            <p class="title">Détails Personnel</p>
+                 </div>
+            </div>
+            <div class="hello">
+                <div class="better left-details">
+                    <p>Nom complet</p>
+                    <p>Adresse</p>
+                </div>
+                <div class="better">
+                    <p>{{client.firstName}} {{client.lastName}}</p>
+                    <p>{{client.address?.country+","+client.address?.city+" "+client.address?.address1}}<br>                        
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="diviser">
+            <div class="heee">
+                <div style="width : 50%">
+                    <p class="title">Adresse Email</p>
+                 </div>
+            </div>
+            <div class="hello">
+                <div class="better left-details">
+                    <p>Email (Principale)</p>
+                </div>
+                <div class="better">
+                    <p>{{client.email}}</p>      
+                </div>
+            </div>
+        </div>
+        <div class="diviser">
+            <div class="heee">
+                <div style="width : 50%">
+                   <p class="title">Numéro Télephone</p>
+                 </div>
+            </div> 
+             <div class="hello">
+                <div class="better left-details">
+                    <p>Télephone (Principale)</p>
+                </div>
+                <div class="better">
+                    <p>{{client.phoneNumber}}</p>    
+                </div>
+            </div>
+        </div>
+        <div class="diviser">
+            <div class="heee">
+                <div style="width : 50%">
+            <p class="title">Agence</p>
+                 </div>
+            </div>
+            <div class="hello">
+                <div class="better left-details">
+                    <p>Agence</p>
+                    <p>Banquier en charge</p>
+                </div>
+                <div class="better">
+                    <p>{{client.agency?.title}}</p>
+                    <p>{{client.agent?.firstName}} {{client.agent?.lastName}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="diviser">
+          
+            <div class="heee">
+                <div style="width : 50%">
+            <p class="title">Mot de passe</p>
+                 </div>
+                 <div style="width : 50%; text-align:right">
+                    <button class="btn mb-2 mb-md-0 btn-outline-primary" (click)="editPword()" style="margin-top: 5px;">edit</button>
+                 </div>
+            </div>            
+            <div class="hello">
+                <div class="better left-details">
+                    <p>Password</p>
+                    <p *ngIf="editPwordInd">Ancien Mot de Passe</p>
+                    
+                    <p *ngIf="editPwordInd">Nouveau MDP</p>
+                    <p *ngIf="editPwordInd">Confirmer MDP</p>
+
+                </div>
+                <div class="better">
+                    <p class="pass">*********</p>
+                    <div *ngIf="editPwordInd">
+                        <input type="text" [(ngModel)]="ancienPword">
+                        <label class="is-invalid">{{this.errors.currentpwd}}</label>
+                        <br>
+                        <input type="text" [(ngModel)]="NouveauPword">
+                        <label class="is-invalid">{{this.errors.nouveaupwd}}</label>
+                        <br>
+                        <input type="text" [(ngModel)]="ConfirmPword"> 
+                        <label class="is-invalid">{{this.errors.confirmpwd}}</label><br />
+                        <button style="margin-top : 10px" (click)="updatePword()" class="btn mb-2 mb-md-0 btn-outline-primary">Valider</button>
+                    </div>      
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

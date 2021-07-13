@@ -1,0 +1,94 @@
+<h2>Ajouter un agent : </h2> 
+<div class="container" style="margin-bottom: .5rem;">
+  <p class="error" *ngIf="videError">{{ "Remplit tous les champs !" }}</p>
+  <form class="row g-3" [formGroup]="agentForm" >
+      <div class="row g-3">
+          <div class="col">
+            <span>Nom :</span>
+            <input type="text" class="form-control" placeholder="Nom" aria-label="Nom" formControlName="firstName">
+            <p class="errorS">s</p>
+          </div>
+          <div class="col">
+            <span>Prénom :</span>
+            <input type="text" class="form-control" placeholder="Prénom" aria-label="Prénom" formControlName="lastName">
+            <p class="errorS">s</p>
+          </div>
+      </div>
+      <div class="row g-3">
+        <div class="col">
+          <span>Email :</span>
+          <input type="email" class="form-control" [ngClass] = " { 'is-invalid' : invalidEmail() } "  placeholder="Email" formControlName="email" autocomplete="off">
+          <p class="errorS" [ngClass] = " { 'set' : invalidEmail() } ">{{ errorEmail }}</p>
+        </div> 
+        <div class="col">
+          <span>Téléphone :</span>
+         <input type="tel" class="form-control" placeholder="Téléphone" formControlName="phoneNumber" autocomplete="off">
+         <p class="errorS">s</p>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col">
+          <span>Mot de passe :</span>
+          <input type="password" class="form-control" placeholder="Mot de passe" formControlName="password">  
+          <p class="errorS">s</p>
+        </div>
+        <div class="col">
+          <span>CIN :</span>
+           <input type="text" class="form-control" [ngClass] = " { 'is-invalid' : invalidIdcard() } "  placeholder="CIN" formControlName="idcard" autocomplete="off"> 
+           <p class="errorS" [ngClass] = " { 'set' : invalidIdcard() } " >{{ errorIdcard }}</p>
+        </div>
+      </div>
+      <div class="row g-3"> 
+        <div class="col-6">
+          <span>Agence :</span>
+          <select formControlName="agency" class="form-select">
+            <option [ngValue]="null" disabled>Sélectionner l'agence</option>
+            <option *ngFor="let agc of agencies" [ngValue]="agc">
+              {{ agc?.title }}
+            </option>
+          </select>
+          <p class="errorS">s</p>
+      </div></div>
+
+      <fieldset formGroupName="address">
+        <div class="row g-3">
+            <div class="col">
+              <span>Adresse :</span>
+              <input type="text" class="form-control" placeholder="Adresse" formControlName="address1" autocomplete="off">
+              <p class="errorS">s</p>
+            </div>
+            <div class="col">
+              <span>Code Postal :</span>
+              <input type="number" class="form-control" placeholder="code postal" formControlName="zipcode" autocomplete="off">
+              <p class="errorS">s</p>
+            </div>
+        </div><br>
+        <div class="row g-3">
+            <div class="col">
+              <span>Pays :</span>
+              <input type="text" class="form-control" id="inputcity" formControlName="country" value="Maroc" readonly>
+              <p class="errorS">s</p>
+            </div>
+            <div class="col">
+              <span>Ville :</span>
+              <select formControlName="city" class="form-select">
+                <option [ngValue]="null" disabled>Sélectionner la ville</option>
+                  <option [ngValue]="'Marrakech'">Marrakech</option>
+                  <option [ngValue]="'Rabat'">Rabat</option>
+                  <option [ngValue]="'Casablanca'">Casablanca</option>
+                  <option [ngValue]="'Tanger'">Tanger</option>
+                  <option [ngValue]="'Fes'">Fes</option>
+              </select>
+              <p class="errorS">s</p>
+            </div>
+          </div>
+      </fieldset>
+      <div class="col-12" style="display: grid; grid-template-columns: 1fr; place-items: flex-end; margin-top: 1.5rem;">
+        <div>
+          <button type="submit" class="btn btn-primary" (click)="submit()" style="margin-right: 4px;" >Valider</button> <!-- [disabled]="clientForm.invalid"-->
+          <button type="submit" class="btn btn-primary" (click)="reset()">Annuler</button>
+        </div>
+      </div>
+    </form>
+
+  </div>

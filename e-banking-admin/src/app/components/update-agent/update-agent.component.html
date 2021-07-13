@@ -1,0 +1,73 @@
+<h2>Modifier un agent : </h2> 
+<div class="container">
+  <p class="error" *ngIf="videError">{{ "Remplit tous les champs !" }}</p>
+  <form class="row g-3" [formGroup]="agentForm" >
+      <div class="row g-3">
+          <div class="col">
+            <span>Nom :</span>
+            <input type="text" class="form-control" placeholder="Nom" aria-label="First name" formControlName="firstName">
+          </div>
+          <div class="col">
+            <span>Prénom :</span>
+            <input type="text" class="form-control" placeholder="Prénom" aria-label="Last name" formControlName="lastName">
+          </div>
+      </div>
+      <div class="row g-3">
+        <div class="col">
+          <span>Email :</span>
+          <input type="email" class="form-control" [ngClass] = " { 'is-invalid' : invalidEmail() } " placeholder="Email" formControlName="email">
+          <p class="errorS" [ngClass] = " { 'set' : invalidEmail() } ">{{ errorEmail }}</p>
+        </div> 
+        <div class="col">
+          <span>Télephone :</span>
+         <input type="tel" class="form-control" placeholder="Téléphone" formControlName="phoneNumber">
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col">
+          <span>Mot de passe :</span>
+          <input type="text" class="form-control" placeholder="Password" formControlName="password">  
+        </div>
+        <div class="col">
+          <span>CIN :</span>
+          <input type="text" class="form-control" placeholder="CIN" [ngClass] = " { 'is-invalid' : invalidIdcard() } " formControlName="idcard"> 
+          <p class="errorS" [ngClass] = " { 'set' : invalidIdcard() } " >{{ errorIdcard }}</p>
+        </div>
+      </div>
+
+      <fieldset formGroupName="address">
+        <div class="row g-3">
+            <div class="col">
+              <span>Adresse :</span>
+              <input type="text" class="form-control" placeholder="Adresse" formControlName="address1">
+            </div>
+            <div class="col">
+              <span>Code Postal :</span>
+              <input type="text" class="form-control" placeholder="Code postal" formControlName="zipcode">
+            </div>
+        </div><br>
+        <div class="row g-3">
+            <div class="col">
+              <span>Pays :</span>
+              <input type="text" class="form-control" formControlName="country" value="Maroc" readonly>
+            </div>
+            <div class="col">
+              <span>Ville :</span>
+              <select formControlName="city" class="form-select">
+                <option value=0 disabled selected>Sélectionner la ville</option>
+                  <option>Marrakech</option>
+                  <option>Rabat</option>
+                  <option>Casablanca</option>
+                  <option>Tanger</option>
+                  <option>Fes</option>
+              </select>
+            </div>
+          </div>
+      </fieldset>
+      <div class="col-12" style="display: flex;justify-content: flex-end;">
+        <button type="submit" class="btn btn-primary" (click)="submit()" style="margin-right: 4px;" >Valider</button> <!-- [disabled]="clientForm.invalid"-->
+        <button type="submit" class="btn btn-primary" (click)="reset()">Annuler</button>
+      </div>
+    </form>
+
+  </div>

@@ -1,0 +1,27 @@
+<div *ngIf="clientsAgent?.length == 0">Aucun client trouver !</div>
+
+<div *ngIf="clientsAgent?.length != 0" id="listeClientsContainer" style="margin: 2rem;">
+  <div style="display: flex; justify-content: space-between;">
+    <div style="margin: 1rem;">Liste des clients</div>
+    <div style="margin: 1rem;">Agence : {{agence.toUpperCase()}}</div>
+  </div>
+  <div style="margin: 2rem 1rem; font-size: 1.4rem;">Agent : {{agent}}</div>
+  <div>
+  <table id="listeClients">
+    <tr class="tabelHeader" style="font-size: 1.1rem;">
+      <td>Nom complet</td>
+      <td>Num de télephone</td>
+      <td>Email</td>
+      <td>Adresse</td>
+      <td>Comptes</td>
+    </tr> 
+    <tr *ngFor="let client of clientsAgent" class="client" id="{{client.id}}">
+      <td>{{client.firstName}} {{client.lastName}}</td>
+      <td>{{client.phoneNumber}}</td>
+      <td>{{client.email}}</td>
+      <td>{{client.address?.address1}}</td>
+      <td (click)="afficherComptes($event)" class="lien" style="color: rgb(150, 150, 228);">Voir les comptes</td> 
+    </tr> 
+  </table>
+  </div>
+</div>

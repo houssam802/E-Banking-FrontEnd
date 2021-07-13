@@ -1,0 +1,43 @@
+.error{
+    width: 99%;
+    font-size: 1.1em;
+    color: #dc3545;
+    background: #dc35451f;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #dc3545;
+    margin-bottom: 10px;
+}
+
+.row > *{
+    margin-top: .3rem;
+}
+
+.col p{
+    margin: 0;
+}
+
+.errorS{
+    visibility: hidden;
+    color: #dc3545;
+}
+
+.errorS.set{
+    visibility: visible;
+}
+
+.error.set{
+    display: block;
+}
+
+span {
+    font-size: 12pt;
+    font-weight: 500;
+    margin: 1px
+}
+
+
+input, select, button{
+    outline: none !important;
+    box-shadow: none !important;
+}

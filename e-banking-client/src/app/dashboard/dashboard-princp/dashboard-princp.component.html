@@ -1,0 +1,11 @@
+<app-dashboard-nav *ngIf="isDataAvailable" [balance]="balanceTotal"></app-dashboard-nav>
+<div class="container" style=" margin-top: 0px;" *ngIf="isDataAvailable">    
+  <div > 
+    <h5   style=" color:var(--first-color);padding:2px 0 4% 4%;">Tous les comptes</h5>
+    <app-infos-compte [comptes]="comptes"></app-infos-compte>
+  </div>
+</div>
+
+
+
+

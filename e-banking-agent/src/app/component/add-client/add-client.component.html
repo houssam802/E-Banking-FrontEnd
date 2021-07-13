@@ -1,0 +1,91 @@
+
+<div id="id1">
+    <form class="row g-3" [formGroup]="clientForm" >
+        <div class="row g-3">
+          <h4>Formulaire de client</h4>
+          <p class="error" *ngIf="videError">{{ "Remplit tous les champs !" }}</p>
+          <hr>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="First name" aria-label="First name" formControlName="firstName">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" formControlName="lastName">
+            </div>
+          </div>
+        <div class="col-md-6">
+          <br>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Email" formControlName="email">
+          <p class="errorS" [ngClass] = " { 'set' : invalidEmail() } ">{{ errorEmail }}</p>
+          <br>
+          <input type="tel" class="form-control" id="inputPassword4" placeholder="Phone" formControlName="phoneNumber">
+        </div>
+        <div class="col-md-6">
+          <div >
+            <br>
+            <input type="text" class="form-control" id="inputPassword4" placeholder="Password" formControlName="password"> 
+          </div>
+          <br>
+          <input type="text" class="form-control" id="inputPassword4" placeholder="CIN" formControlName="idcard"> 
+          <p class="errorS" [ngClass] = " { 'set' : invalidIdcard() } " >{{ errorIdcard }}</p>
+        </div>
+        <fieldset formGroupName="address">
+          <div class="col-6">
+            <br>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Address" formControlName="address1">
+          </div>
+          <div class="col-6">
+            <br>
+            <input type="text" class="form-control" id="inputAddress" placeholder="code de postal" formControlName="zipcode">
+          </div>
+          <div class="col-6" >
+            <br>
+            <input type="text" class="form-control" id="inputcity" placeholder="Maroc" formControlName="country" value="Maroc" readonly>
+          </div>
+          <div class="col-6">
+            <br/>
+              <select formControlName="city" class="form-select">
+                <option [ngValue]="null" disabled>Sélectionner la ville</option>
+                  <option [ngValue]="'Marrakech'">Marrakech</option>
+                  <option [ngValue]="'Rabat'">Rabat</option>
+                  <option [ngValue]="'Casablanca'">Casablanca</option>
+                  <option [ngValue]="'Tanger'">Tanger</option>
+                  <option [ngValue]="'Fes'">Fes</option>
+              </select>
+            </div>
+        </fieldset>
+        
+        
+        
+        
+        
+        
+       <!--<div class="col-md-4">
+          <label for="inputState" class="form-label" >City</label>
+          <select id="inputState" class="form-select">
+            <option selected>Choose</option>
+            <option>Marrakech</option>
+            <option>Rabat</option>
+            <option>Casablanca</option>
+            <option>Tanger</option>
+            <option>Fes</option>
+            <option>Meknes</option>
+            <option>Essaouira</option>
+            <option>Agadir</option>
+            <option>sale</option>
+            <option>Beni Mellal</option>
+            <option>Dakhla</option>
+            <option>Laayoune</option>
+            <option>Nador</option>
+            <option>Safi</option>
+            <option>Zagora</option>
+    
+    
+          </select>
+        </div>--> 
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" (click)="valider()"  >Valider</button> <!-- [disabled]="clientForm.invalid"-->
+          <button type="submit" class="btn btn-primary" id="id2" routerLink='/listclient'>Annuler</button>
+        </div>
+      </form>
+</div>
+  

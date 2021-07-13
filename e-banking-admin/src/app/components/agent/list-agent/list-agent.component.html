@@ -1,0 +1,47 @@
+<div *ngIf="agents?.length == 0">Aucun agent trouver !</div>
+<div *ngIf="agents?.length != 0" id="listeAgentsContainer">
+  <div style="display: flex; justify-content: space-between;">
+    <div style="margin: 2rem 1rem;">Liste des agents</div>
+    <div style="margin: 2rem 1rem;">Agence : {{agence?.title?.toUpperCase()}}</div>
+  </div>
+  <div>
+    <table id="listeAgents">
+      <tr class="tabelHeader" style="font-size: 1.1rem;">
+        <td style="background-color: #0e7999; color: white;">#ID</td>
+        <td>Nom complet</td>
+        <td>Num de télephone</td>
+        <td>Email</td>
+        <td>IDCard</td>
+        <td>Clients en charge de</td>
+        <td class="last"></td>
+      </tr> 
+      <tr *ngFor="let agent of agents" class="agent" id="{{agent.id}}">
+        <td>{{agent.id}}</td>
+        <td>{{agent.firstName}} {{agent.lastName}}</td>
+        <td>{{agent.phoneNumber}}</td>
+        <td>{{agent.email}}</td>
+        <td>{{agent.IDCard}}</td>  
+        <td (click)="sesClients($event)"  class="lien" style="color: rgb(150, 150, 228);">Liste des clients</td>
+        <td>
+          <span (click)="infosAgent($event)" class="fa fa-align-justify"></span>
+          <span (click)="verifierSupprimer($event)" class="fa fa-trash"></span>
+        </td>
+      </tr> 
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body" style="font-size: 1.1rem;">
+        Vous-êtes sûr de supprimer l'agent : {{agentSupprimer?.firstName?.toUpperCase()}} {{agentSupprimer?.lastName?.toUpperCase()}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-danger" (click)="supprimerAgent() " data-dismiss="modal">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>

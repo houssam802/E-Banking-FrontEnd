@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+#listeClientsContainer{
+  font-family: 'Nunito' !important;
+}
+
+#listeClients{
+  width: 100%;
+  min-width: 750px;
+  border: none;
+  border-bottom: solid 1px gray;
+}
+
+@media all and (max-width : 700px){
+  #listeClientsContainer > div:nth-child(1) > div{
+    font-size: 1.1rem;
+  }
+}
+
+@media all and (min-width : 700px){
+  #listeClientsContainer > div:nth-child(1) > div:nth-child(1){
+    font-size: 1.7rem;
+  }
+  #listeClientsContainer > div:nth-child(1) > div:nth-child(2){
+    font-size: 1.4rem;
+  }
+}
+
+
+#listeClientsContainer > div:nth-child(3)::-webkit-scrollbar{
+  height: 8px;
+}
+#listeClientsContainer > div:nth-child(3)::-webkit-scrollbar-thumb{
+  background-color: rgb(194, 194, 194);
+}
+#listeClientsContainer > div:nth-child(3)::-webkit-scrollbar-track{
+  background-color: rgb(221, 221, 221);
+}
+
+#listeClientsContainer > div:nth-child(3){
+  width: 100%;
+  overflow-x: auto;
+}
+
+#listeClients tr{
+  width: 100%;
+}
+
+
+
+#listeClients .client {
+  border-left: 1px solid gray;
+}
+
+#listeClients .client:not(.client:last-child) {
+  border-bottom: 1px solid gray ;
+}
+
+#listeClients .client td{
+  border-right: 1px solid gray;
+  padding: .3rem .2rem;
+}
+
+
+#listeClients tr:nth-child(1){
+  padding: .2rem;
+  color: white;
+  background-color: var(--first-color);
+}
+
+#listeClients .tabelHeader td:not(td:last-child){
+  border-right: 1px solid white;
+}
+
+#listeClients .tabelHeader td:last-child{
+  border-right: 1px solid var(--first-color);
+}
+
+#listeClients .tabelHeader{
+  padding: 0 !important;
+}
+
+#listeClients .tabelHeader td{
+  padding: .5rem .2rem;
+  font-size: 1rem;
+}
+
+#listeClients .lien{
+  cursor: pointer;
+}
+#listeClients .lien:hover{
+  color: var(--first-color) !important;
+}

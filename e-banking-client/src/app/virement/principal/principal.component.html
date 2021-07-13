@@ -1,0 +1,118 @@
+<form [formGroup]="transactions" (ngSubmit)="onSubmit()" id="virer" class="container virements">
+    <div>
+        <div>
+            <div id="ajouterV">
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAjouter">
+                    <span class="fa fa-plus"></span>
+                </button>
+            </div>
+            <div *ngIf="virements.multipleTransferRecipients?.length == 0" style="color: gray; font-size: 1.1rem; display: flex; justify-content: center;">
+                Ajouter des bénéficiaires
+            </div>
+            <div *ngIf="virements.multipleTransferRecipients?.length != 0" class="formGroup header">
+                <div class="formPart">
+                    
+                </div>
+                <div class="formPart">    
+                    Numéro de compte
+                </div>
+                <div class="formPart">
+                    Montant
+                </div>
+            </div>
+            <div *ngFor='let virement of virements.multipleTransferRecipients;let index = index;' class="formGroup">
+                <div class="formPart">
+                    <label class="beneficiaire" id="{{index}}">
+                        <span class="fa fa-minus"></span>
+                    </label>
+                </div>
+                <div class="formPart">    
+                    <input type="text" name="nom" id="nom" class="form-control" value="{{virement.accountNumber}}" readonly>
+                </div>
+                <div class="formPart">
+                    <input type="text" name="montant" id="montant" class="form-control" value="{{virement.amount}} DH" readonly>
+                </div>
+            </div>
+        </div>
+        <div style="flex: 1 1 100%; display: flex; justify-content: center; height: 425px;">
+                <div id="valider">
+                    <div class="form-group">
+                        <label for="">Date de création</label>
+                        <input type="text" name="dateCreation" id="dateCreation" class="form-control" readonly>
+                        <p class="error">ddd</p>
+                    </div>
+                    <div class="form-group" [ngClass]="{ 'has-error' : invalidDateExecution() }">
+                        <label for="dateExecution">Date d'exécution</label>
+                        <input type="text" formControlName="dateExecution" [ngClass]="{ 'is-invalid' : invalidDateExecution() }" name="dateExecution" id="dateExecution" class="form-control" autocomplete="off" placeholder="Date d'exécution">
+                        <p class="error" [ngClass]="{ 'set' : invalidDateExecution() }">{{ erreur.execution || "Format incorrect" }}</p>
+                    </div>
+                    <div class="form-group" [ngClass]="{ 'has-error' : invalidMotif() }">
+                        <label for="motif">Motif</label>
+                        <input type="text" formControlName="motif" [ngClass]="{ 'is-invalid' : invalidMotif() }" name="motif" id="motif" class="form-control" autocomplete="off" placeholder="Motif">
+                        <p class="error" [ngClass]="{ 'set' : invalidMotif() }">{{ "Motif requis" }}</p>
+                    </div>
+    
+                    <div class="form-group" [ngClass]="{ 'has-error' : invalidNum() }">
+                        <label for="motif">Votre Compte</label>
+                        <select formControlName="num_compte" class="form-select" [ngClass]="{ 'is-invalid' : invalidNum() }">
+                            <option [ngValue]="null" disabled>Sélectionner ton compte</option>
+                            <option *ngFor="let cp of comptes" [ngValue]="cp" [disabled]="cp.status == 'SUSPENDED'">
+                              {{ cp?.number }}
+							  <div *ngIf="cp.status == 'SUSPENDED'"> &mdash; [Suspendu]</div>
+                            </option>
+                          </select>
+                        <p class="error" [ngClass]="{ 'set' : invalidNum() }">{{ "Numéro de compte requis" }}</p>
+                    </div>
+    
+                    <div id="total">
+                        <div>Montant Total</div>
+                        <div> <input type="text" name="total" formControlName="total" id="totals" class="form-control" value="{{montantTotal}} DH" placeholder="0 DH" readonly></div>
+                    </div>
+                    <div id="virerB" style="width: clamp(200px, 30%, 30%);">
+                        <input type="submit" value="Virer" id='bouton'>
+                    </div>
+                    <div style="margin-bottom: .5rem;">
+                        <p class="error" [ngClass]="{ 'set' : invalidTotal() }">{{ erreurTransaction || "Aucun compte n'était choisi" }}</p>
+                    </div>
+                </div>
+        </div>
+    </div>
+    
+    </form>
+    
+    
+    <div class="modal" id="modalAjouter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 80%;">
+            <div class="modal-content">
+                <app-ajouter></app-ajouter>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modalVerification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 80%;">
+            <div class="modal-content">
+                <div class="modal-header" style="border: none; padding: .5rem 0; justify-content: center;">
+                    <h5 class="modal-title" id="exampleModalLabel" style="font-size: 1.5rem;">Valider le virement</h5>
+                </div>
+                <div class="modal-body">
+                    <div style="border-bottom: 1px solid black; display: flex; justify-content: space-between; padding-bottom: .5rem;">
+                        <div>Numéro du compte</div>
+                        <div>Montant</div>
+                    </div>
+                    <div *ngFor='let virement of virements.multipleTransferRecipients;let index = index;' style="display: flex; justify-content: space-between;">
+                        <div> {{virement.accountNumber}} </div>
+                        <div> {{virement.amount}} DH </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding-top: .8rem; margin-top: 2rem; border-top: 1px solid;">
+                        <div>Montant Total</div>
+                        <div>{{montantTotal}} DH</div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border: none; padding: .5rem 0;" >
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="button" (click) = "virer()" data-dismiss="modal" class="btn btn-primary">Accepter</button>
+                </div>
+            </div>
+        </div>
+    </div>

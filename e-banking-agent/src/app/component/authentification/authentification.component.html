@@ -1,0 +1,27 @@
+<body>
+  <h1 style="text-align:center">
+    E-Bank
+  </h1>
+  <div class="login">
+    <h2 class="login-header">S'identifier</h2>
+    <form [formGroup]="loginForm" class="login-container" (ngSubmit)="seConnecter()">
+      <input type="email" class="form-control" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': isSubmitted && (formControls.email.errors || errors.email) }" required>
+      <div class="invalid-feedback">
+        {{errors.email || 'Champ vide !!'}}
+      </div>
+<br>
+      <input type="password" class="form-control" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': isSubmitted && formControls.password.errors }" [ngClass]="{ 'is-invalid': isSubmitted && (formControls.email.errors || errors.pwd) }" required>
+      <div class="invalid-feedback">
+        {{errors.pwd || 'Champ vide !!'}}
+      </div>
+  
+      <br>
+  
+      <p>
+        <input type="submit" value="Log in">
+      </p>
+    </form>
+  </div>
+  
+</body>
+

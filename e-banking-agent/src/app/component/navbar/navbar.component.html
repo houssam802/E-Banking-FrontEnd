@@ -1,0 +1,40 @@
+    <div *ngIf="!estconnecter">
+      <app-authentification></app-authentification>
+    </div>
+    
+    <div *ngIf="estconnecter" autosize >
+        <header class="header" id="header">
+          <div class="header_toggle"> <i class='fa fa-bars' id="header-toggle"></i> </div>
+          <div class="header_text"> {{nom!}}</div>
+      </header>
+      <div class="l-navbar" id="nav-bar">
+          <nav class="nav">
+              <div> <a href="#" class="nav_logo"> <i class="fas fa-landmark nav_logo-icon"></i>
+                    <span class="nav_logo-name">Bank</span> </a>
+                  <div class="nav_list">
+                    <div class="nav_link"> 
+                      <span class="nav_elem_name" routerLink="/home" style="text-align:left;">Home</span>
+                    </div>
+                    <div class="nav_link"> 
+                        <span class="nav_name">Clients</span> 
+                        <span class="nav_elem_name" routerLink="/listclient">Listes des clients</span>
+                        <span class="nav_elem_name" routerLink="/ajouterclient" >Nouveau client</span>
+                    </div>
+                    <div class="nav_link">
+                      <span class="nav_elem_name" routerLink="/mesrendezvous" style="text-align:left;">mes rendez-vous</span>
+                    </div>
+                  </div>
+              </div> 
+              <div class="nav_link"> 
+                  <i class="fas fa-sign-out-alt nav_icon"></i>
+                  <span class="nav_name" style="cursor: pointer; margin-bottom:3px;" (click)="logout()">Déconnecter</span> 
+              </div>
+          </nav>
+      </div>
+      <div class="bg-light">
+        <div class="route">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    
+      </div>

@@ -1,0 +1,100 @@
+.account{
+    padding:10px;
+    box-sizing: border-box;
+    
+  }
+  
+  table{
+    background: white;
+    color:rgb(121, 118, 118);
+    width:100%;
+    border-bottom: 1px solid #ddd;
+  
+  }
+  table tr.highlight {
+    background-color: none !important;
+    border-left: 2px solid #00B4DB;
+    background: rgb(245, 244, 244);
+  }
+  
+  table img{
+    width:2vw;
+    height:auto;
+  }
+  .table td, .table th {
+  vertical-align: top;
+  border:none;
+  }
+  
+  table tr.highlight {
+    background-color: none !important;
+    border-left: 2px solid #00B4DB;
+    background: rgb(245, 244, 244);
+  }
+  
+  .table td{
+    font-size:14px;
+    padding: 5px;
+    text-align: center;
+      vertical-align: middle;
+  }
+  .table .first_tr{
+    border: 1px solid #ddd;
+  }
+  .table .first_tr td{
+    font-size: 1.1rem;
+  }
+  .table .test{
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+  .table .test:hover{
+    background-color: rgb(236, 236, 236);
+  }
+  .table .first_td{
+    width:20px;
+    padding-left: 3vw;
+  }
+  .table .currency{
+    padding-left: 2vw;
+  }
+  
+  
+  
+  @media (max-width: 783px) {
+  
+   tr th:nth-child(1),tr td:nth-child(1),
+  
+   tr th:nth-child(5),tr td:nth-child(5)
+  
+  
+   {
+  
+     display:none;
+   }
+  
+   .table td, .table th {
+    font-size:12px;
+    
+    
+  }
+  .account{
+    padding: 0;
+  }
+   }
+
+   @media (max-width:930px) and (min-width:785px) {
+    tr th:nth-child(1),tr td:nth-child(1)
+    {
+   
+      display:none;
+    }
+   
+    .table td, .table th {
+     font-size:13px;
+        
+   }
+   .account{
+     padding: 2px;
+   }
+}

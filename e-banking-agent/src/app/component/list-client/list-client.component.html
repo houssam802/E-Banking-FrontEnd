@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+
+<div class="col-12" id="id0">
+     
+     </div>
+  
+<div class="m-5">
+  <div class="container d-flex justify-content-center">
+    <div class="card mt-5 p-4">
+      
+        <div class="input-group mb-3"> 
+          <input type="text" class="form-control" (keyup)="test($event)" placeholder="Recherche par CIN">
+            <div class="input-group-append">
+              <button class="btn btn-primary" >
+                <img src="../../../assets/search-icon2.png" height="22px" width="22px">
+                
+              </button>
+            </div>
+        </div>
+    </div>
+  </div>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">CIN</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="test1" *ngFor="let p of client_temp" id="{{p.id}}">
+        <th scope="row">{{p.idcard}}</th>
+        <td>{{p.firstName}}</td>
+        <td>{{p.lastName}}</td>
+        <td>{{p.phoneNumber}}</td>
+        <td>
+         
+          <button type="button" class="btn btn-info mr-4" routerLink="/listaccount/{{p.id}}" >Voir</button>
+          <button type="button" class="btn btn-danger" (click)=" verifierSupprimer($event) " data-dismiss="modal">Résilier</button>
+        </td>
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body" style="font-size: 1.1rem;"   >
+        Vous-êtes sûr de supprimer l'agence : {{clientSupprimer?.firstName?.toUpperCase()}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-danger" (click)="supprimerClient() " data-dismiss="modal">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

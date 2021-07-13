@@ -1,0 +1,43 @@
+<h2>Ajouter une agence : </h2> 
+<div class="container">
+  <p class="error" *ngIf="videError">{{ "Remplit tous les champs !" }}</p>
+  <form class="row g-3" [formGroup]="agencyForm" >
+      <div class="row g-3">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Titre" formControlName="title" autocomplete="off">
+          </div>
+      </div>
+
+      <fieldset formGroupName="address">
+        <div class="row g-3">
+            <div class="col">
+              <input type="text" class="form-control" id="inputAddress" placeholder="Adresse" formControlName="address1" autocomplete="off">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="inputAddress" placeholder="code de postal" formControlName="zipcode" autocomplete="off">
+            </div>
+        </div><br>
+        <div class="row g-3">
+            <div class="col">
+              <input type="text" class="form-control" id="inputcity" formControlName="country" value="Maroc" readonly>
+            </div>
+            <div class="col">
+              <select formControlName="city" class="form-select">
+                <option [ngValue]="null" disabled>Sélectionner la ville</option>
+                  <option [ngValue]="'Marrakech'">Marrakech</option>
+                  <option [ngValue]="'Rabat'">Rabat</option>
+                  <option [ngValue]="'Casablanca'">Casablanca</option>
+                  <option [ngValue]="'Tanger'">Tanger</option>
+                  <option [ngValue]="'Fes'">Fes</option>
+              </select>
+            </div>
+          </div>
+      </fieldset>
+
+      <div class="col-12" style="display: flex;justify-content: flex-end;">
+        <button type="submit" class="btn btn-primary" (click)="submit()" style="margin-right: 4px;" >Valider</button> <!-- [disabled]="clientForm.invalid"-->
+        <button type="submit" class="btn btn-primary" (click)="reset()">Annuler</button>
+      </div>
+    </form>
+
+  </div>

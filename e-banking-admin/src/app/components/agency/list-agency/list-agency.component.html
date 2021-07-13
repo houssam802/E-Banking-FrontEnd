@@ -1,0 +1,40 @@
+<div id="listeAgencesContainer" style="margin: 2rem;">
+  <div style="margin: 2rem 1rem; font-size: 1.5rem;">Liste des agences</div>
+  <div>
+    <table id="listeAgences">
+      <tr class="tabelHeader" style="font-size: 1.1rem;">
+        <td>Nom d'agence</td>
+        <td>Adresse</td>
+        <td>Agents</td>
+        <td></td>
+      </tr> 
+      <tr *ngFor="let agence of agencies" class="agence" id="{{agence.id}}">
+        <td>{{agence.title}}</td>
+        <td>{{agence.address?.address1}}</td>
+        <td (click)="afficherAgents($event)" class="lien" style="color: rgb(150, 150, 228);">Liste des agents</td>
+        <td>
+          <span (click)="infosAgence($event)" class="fa fa-align-justify"></span>
+          <span (click)="verifierSupprimer($event)" class="fa fa-trash"></span>
+        </td>
+      </tr> 
+      <tr *ngIf="agencies?.length == 0">
+        <td style="margin: .8rem; font-size: 1.1rem;">Aucune Agence</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body" style="font-size: 1.1rem;">
+        Vous-êtes sûr de supprimer l'agence : {{agenceSupprimer?.title?.toUpperCase()}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-danger" (click)="supprimerAgence() " data-dismiss="modal">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div *ngIf="!isAuthenticated">
+  <app-authentification></app-authentification>
+</div>
+
+<div *ngIf="isAuthenticated" autosize >
+    <header class="header" id="header">
+      <div class="header_toggle"> <i class='fa fa-bars' id="header-toggle"></i> </div>
+      <div class="header_text"> {{nom!}}</div>
+  </header>
+  <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+          <div> <a href="#" class="nav_logo"> <i class="fas fa-landmark nav_logo-icon"></i>
+               <span class="nav_logo-name">Bank</span> </a>
+              <div class="nav_list">
+                <div class="nav_link"> 
+                  <span class="nav_name">Infos</span>
+                  <span class="nav_elem_name" routerLink="dashboard">Comptes</span>
+                  <span class="nav_elem_name" routerLink="profile" >Profile</span>
+                </div>
+                <div class="nav_link"> 
+                    <span class="nav_name">Virements</span> 
+                    <span class="nav_elem_name" routerLink="addVirement" >Effectuer Virements</span>
+                    <span class="nav_elem_name" routerLink="virements" >Vos Virements</span>
+                </div>
+                <div class="nav_link">
+                  <span class="nav_elem_name" id="rendv" routerLink="rendezvous">Demander un rendez-vous</span>
+                </div>
+              </div>
+          </div> 
+          <div class="nav_link"> 
+              <i class="fas fa-sign-out-alt nav_icon"></i>
+              <span class="nav_name" style="cursor: pointer; margin-bottom:3px;" (click)="logout()">Déconnecter</span> 
+          </div>
+      </nav>
+  </div>
+  <div class="bg-light">
+    <div class="route">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
+
+  
+  </div>

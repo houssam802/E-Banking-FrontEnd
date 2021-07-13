@@ -1,0 +1,38 @@
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <div class="card-body">
+              <h3 class="card-title text-center" style="margin-bottom: 2rem;">S'Authentifier</h3>
+
+              <form [formGroup] = "client">
+                <div class="form-ligne" [ngClass]="{ 'has-error' : invalidEmailUtili() }">
+                  <div>
+                    <input type="text" formControlName="email" name="email" id="email" [ngClass]="{ 'is-invalid' : invalidEmailUtili() }" class="form-control input-text" placeholder="Email" autocomplete="off">
+                    <p class="error" [ngClass]="{ 'set' : invalidEmailUtili() }">{{ errors.email || "Champ Invalid !" }}</p>
+                  </div> 
+                </div>
+                <div class="form-ligne" [ngClass]="{ 'has-error' : invalidPassword() }">
+                  <div>
+                    <input type="password" formControlName="pwd" name="pwd" id="pwd" [ngClass]="{ 'is-invalid' : invalidPassword() }" class="form-control input-text" placeholder="Mot de passe" aria-describedby="noticepwd">
+                    <p class="error" [ngClass]="{ 'set' : invalidPassword() }">{{ errors.pwd || "Mot de passe incorrect !"}}</p>
+                  </div>
+                </div>
+                <div class="form-dern-ligne">
+                  <button type="submit" class="auth" (click)="onSubmit()">Authetifier</button>
+                </div>
+              </form>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body >
+
+
+
+
+

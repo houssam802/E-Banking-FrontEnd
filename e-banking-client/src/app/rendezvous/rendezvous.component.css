@@ -1,0 +1,71 @@
+.rendezvous{
+    width: clamp(400px, 50%, 700px);
+    box-shadow: 0 0 1rem .2rem rgba(0, 0, 0, .2);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: .3rem;
+    padding: 1rem;
+}
+
+.form-group{
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    margin: 0;
+}
+
+.form-control.is-invalid{
+    border-bottom-color: #dc3545 !important;
+    background: none !important;
+}
+
+.form-group > input[type="date"],
+.form-group > input[type="time"],
+.form-group > input[type="number"]{
+    padding: .3rem;
+    border-color: transparent;
+    border-bottom-color: black;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: transparent;
+    font-size: 1.05rem;
+}
+
+.form-group.submit{
+    display: flex;
+    justify-content: center;
+}
+
+.form-group > input[type="submit"]{
+    width: 50%;
+    padding: .5rem 0;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: var(--first-color);
+    color: white;
+    border-radius: .3rem;
+    font-size: 1.1rem;
+    border-width: 0px;
+}
+
+.form-group > input[type="submit"]:hover{
+    background-color: var(--white-color);
+}
+
+.form-group .rendez{
+    font-size: 1.1rem;
+    margin: 0;
+    margin-left: .8rem;
+}
+
+.errors{
+    visibility: hidden;
+    color: #dc3545;
+}
+
+.errors.set{
+    visibility: visible;
+}
